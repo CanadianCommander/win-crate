@@ -1,2 +1,21 @@
-virt-install --name=win --disk path=/var/vm/disk/{{diskname}}.qcow2,size=100,format=qcow2,bus=virtio --ram=16000 --vcpus=4 --check-cpu --hvm --location=/var/vm/iso/win.iso  --network=bridge:virbr0
+
+INSTALL_ISO=${INSTALL_ISO:-/var/vm/iso/win.iso}
+
+DISK_NAME=${DISK_NAME:-windows}
+DISK_SIZE=${DISK_SIZE:-100}
+
+RAM=${RAM:-8000}
+CPU_CORES=${CPU_CORES:-4}
+
+virt-install --name=windows \
+  --disk path=/var/vm/disk/${DISK_NAME}.qcow2,size=${DISK_SIZE},format=qcow2,bus=virtio \
+  --disk path=/var/vm/iso/virtio-win.iso,device=cdrom \
+  --ram=${RAM} \
+  --vcpus=${CPU_CORES} \
+  --check-cpu \
+  --hvm \
+  --boot=cdrom \
+  --os-variant=win11 \
+  --cdrom=${INSTALL_ISO} \
+  --network=bridge:virbr0
 

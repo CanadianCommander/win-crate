@@ -8,11 +8,17 @@ RUN apt install -y qemu-kvm libvirt-daemon-system libvirt-dev virt-manager curl 
 RUN mkdir -p /var/vm/iso/
 COPY win.iso /var/vm/iso/win.iso
 
-# copy scripts
-COPY script/ /root/
-
 # all root login via ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+
+# make vm dirs 
+RUN mkdir -p /var/vm/disk 
+
+# download virtio driver for windows 
+RUN wget https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso -O /var/vm/iso/virtio-win.iso
+
+# copy scripts
+COPY script/ /root/
 
 # setup network bridge 
 #COPY 01-network-bridge.yaml /etc/netplan/01-network-bridge.yaml 

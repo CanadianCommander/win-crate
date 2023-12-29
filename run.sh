@@ -1,3 +1,5 @@
-docker run -it -p 22:22 -v ./vm:/var/vm --privileged windows:0.0.4 /bin/bash
+pushd "$(dirname $0)" >> /dev/null 
 
-# -v /sys/fs/cgroup:/sys/fs/cgroup:ro
+docker run -it -p 22:22 -v $(pwd)/vm/disk/:/var/vm/disk/ --privileged win-crate:0.0.5 /bin/bash
+
+popd >> /dev/null
