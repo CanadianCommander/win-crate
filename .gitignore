@@ -2,3 +2,5 @@
 *.qcow2
 *.key
 *.pub
+
+/vm/data

@@ -17,5 +17,7 @@ virt-install --name=windows \
   --boot=cdrom \
   --os-variant=win11 \
   --cdrom=${INSTALL_ISO} \
+  --filesystem /var/vm/data/:linux \
+  --shmem name=shmem0 \
   --network=bridge:virbr0
 
