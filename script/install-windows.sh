@@ -9,7 +9,7 @@ CPU_CORES=${CPU_CORES:-4}
 
 virt-install --name=windows \
   --disk path=/var/vm/disk/${DISK_NAME}.qcow2,size=${DISK_SIZE},format=qcow2,bus=virtio \
-  --disk path=/var/vm/iso/virtio-win.iso,device=cdrom \
+  --disk path=/var/vm/cdrom/virtio-win.iso,device=cdrom \
   --ram=${RAM} \
   --vcpus=${CPU_CORES} \
   --check-cpu \
