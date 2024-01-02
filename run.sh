@@ -13,6 +13,6 @@ for mount in "${@}"; do
     DATA_MOUNTS="${DATA_MOUNTS} -v ${mount}:/var/vm/data/$(basename ${mount})"
 done
 
-docker run -it -p 22:22  ${DATA_MOUNTS} -v ./vm/disk/:/var/vm/disk/ -v ./vm/iso/:/var/vm/iso/ -v ./vm/ssh/rsa.key.pub:/root/.ssh/authorized_keys --privileged win-crate:latest /bin/bash
+docker run -it -p 22:22 -p 8080:80 -p 8443:443  ${DATA_MOUNTS} -v ./vm/disk/:/var/vm/disk/ -v ./vm/iso/:/var/vm/iso/ -v ./vm/ssh/rsa.key.pub:/root/.ssh/authorized_keys --privileged ghcr.io/canadiancommander/win-crate:latest /bin/bash
 
 popd >> /dev/null

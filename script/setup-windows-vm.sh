@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pushd "$(dirname $0)" >> /dev/null 
 
 INSTALL_ISO=${INSTALL_ISO:-/var/vm/iso/win.iso}
