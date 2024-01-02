@@ -6,7 +6,7 @@ DISK_NAME=${DISK_NAME:-windows}
 DISK_SIZE=${DISK_SIZE:-100}
 
 RAM=${RAM:-8000}
-CPU_CORES=${CPU_CORES:-4}
+CPU_CORES=${CPU_CORES:-$(cat /proc/cpuinfo  | grep -i 'cpu cores' | grep -E '[0-9]+' -o | head -1)}
 
 BOOT=""
 if [ -f /var/vm/disk/${DISK_NAME}.qcow2 ]; then
