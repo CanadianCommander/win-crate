@@ -14,6 +14,14 @@ Following these steps
 You should now see your Windows VM in the list. Double click the VM to open a graphic console. 
 Now you can install Windows by following the installation instructions. 
 
+# Installing Windows
+
+For the most part just follow the prompts. However, when asked which type of installation you want to perform select "Custom: Install Windows only (advanced)". You will then see that no drives are detected to which Windows can be installed. This is because the VirtIO drivers are not installed. To install the VirtIO drivers follow these steps.
+
+1. Click "Load Driver" near the bottom of the screen
+2. The driver list should automatically populate. Simply select the driver for your version of Windows.
+3. Once the driver has finished installing you should see a new drive appear. Install windows to that drive.
+
 ### Modify Boot Order 
 After installing Windows you will need to modify the boot order. To do this follow these steps.
 
@@ -26,10 +34,14 @@ Once you have Windows installed follow [this guide](./windows-postinstall-setup.
 
 # Tips 
 
-### Strange boot screen
+### Strange boot screen?
 If you see a screen like this
 
 ![UEFI cli](uefi-cli.png)
 
 Then you have booted into the UEFI shell. You can exit the shell by typing `exit` and pressing enter.
 This will present you with a UEFI menu. Select "Continue" to continue boot.
+
+### Installer just keeps running over and over? 
+You need to update the boot order for the VM to stop it from booting from the install media.
+To do this follow the steps in the "Modify Boot Order" section above.
