@@ -11,11 +11,18 @@ Following these steps
 6. enter the SSH username as root and the host as `localhost`
 7. Click "Connect"
 
-You should now see your windows VM in the list. Double click the VM to open a graphic console. 
+You should now see your Windows VM in the list. Double click the VM to open a graphic console. 
 Now you can install Windows by following the installation instructions. 
 
+### Modify Boot Order 
+After installing Windows you will need to modify the boot order. To do this follow these steps.
+
+1. In the window that displays the VM click "Show virtual hardware details" (light bulb icon)
+2. Click the "Boot Options" tab
+3. Move VirtIO Disk1 to the top of the list
+
 ### Post Install
-Once you have windows installed follow [this guide](./doc/windows-postinstall-setup.md) to configure windows to work with the host machine.
+Once you have Windows installed follow [this guide](./windows-postinstall-setup.md) to configure windows to work with the host machine.
 
 # Tips 
 

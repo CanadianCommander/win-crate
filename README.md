@@ -25,5 +25,5 @@ you specify will be available in windows under the same drive. Usually the `Z:` 
 ```
 
 ### Now What? 
-You've got windows running but you can't see it. Don't worry. Just follow 
+You've got windows running but you can't see it. Don't worry. Just follow
 [Getting Setup](./doc/virt-manager.md)
