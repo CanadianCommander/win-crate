@@ -23,3 +23,7 @@ you specify will be available in windows under the same drive. Usually the `Z:` 
 ```bash 
 ./run.sh /home/user/mymount/point/ /home/user/another/mount/point/ .... 
 ```
+
+### Now What? 
+You've got windows running but you can't see it. Don't worry. Just follow 
+[Getting Setup](./doc/virt-manager.md)
