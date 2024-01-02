@@ -13,13 +13,13 @@ You can download a windows ISO [here ](https://www.microsoft.com/en-us/software-
 
 place the ISO in the `vm/iso/` directory with the name `win.iso` (as shown by the placeholder file)
 
-### Setup SSH Key (optional)
-If you want to ssh into the container without using a password you can add your public key to the `vm/ssh/` directory with the name `rsa.key.pub` (as shown by the placeholder file).
+### Setup SSH Key
+To ssh into the container you must copy a public key to the `vm/ssh/` directory with the name `rsa.key.pub` (as shown by the placeholder file).
 
 ### Run
 Now you are ready to start your windows container. You can use the run command to start the container. 
-The run command is very simple. It only takes a list of directories to mount into windows. Each directory 
-will show up as a drive in Windows.
+The run command is very simple. It only takes a list of directories to mount into windows. All the directories 
+you specify will be available in windows under the same drive. Usually the `Z:` drive.
 ```bash 
 ./run.sh /home/user/mymount/point/ /home/user/another/mount/point/ .... 
 ```

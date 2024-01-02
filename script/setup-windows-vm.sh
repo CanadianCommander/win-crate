@@ -7,17 +7,23 @@ DISK_SIZE=${DISK_SIZE:-100}
 RAM=${RAM:-8000}
 CPU_CORES=${CPU_CORES:-4}
 
+BOOT=""
+if [ -f /var/vm/disk/${DISK_NAME}.qcow2 ]; then
+  BOOT="--boot=cdrom"
+fi
+
 virt-install --name=windows \
   --disk path=/var/vm/disk/${DISK_NAME}.qcow2,size=${DISK_SIZE},format=qcow2,bus=virtio \
   --disk path=/var/vm/cdrom/virtio-win.iso,device=cdrom \
-  --ram=${RAM} \
-  --vcpus=${CPU_CORES} \
+  --disk path=/var/vm/cdrom/win-tools.iso,device=cdrom \
+  --memory memory=${RAM} \
+  --memorybacking access.mode=shared \
+  --vcpus cores=${CPU_CORES} \
   --check-cpu \
   --hvm \
-  --boot=cdrom \
+  ${BOOT} \
   --os-variant=win11 \
   --cdrom=${INSTALL_ISO} \
-  --filesystem /var/vm/data/:linux \
-  --shmem name=shmem0 \
+  --filesystem /var/vm/data/,linux,accessmode=passthrough,driver.type=virtiofs \
   --network=bridge:virbr0
 
