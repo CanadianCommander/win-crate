@@ -13,7 +13,7 @@ Run both the batch files in this directory. The scripts will install spice guest
 ## Configure Devices 
 
 Next you must configure system devices to use the correct drivers. In "Device Manager" locate the 
-"VirtIO FS Device" and "VirtIO Serial Device" and update the drivers to use the drivers on the virtio CD drive.
+"VirtIO FS Device" and "VirtIO Serial Device" and update the drivers to use the drivers on the `virtio` CD drive.
 Use the `viofs` driver for the "VirtIO FS Device" and the `vioserial` driver for the "VirtIO Serial Device".
 
 ![Driver Selection](virtiofs-device.png)
