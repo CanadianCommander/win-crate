@@ -38,6 +38,10 @@ COPY script/ /root/
 # build tools ISO for windows scripts 
 RUN genisoimage -o /var/vm/cdrom/win-tools.iso /root/win
 
+# setup boot script 
+COPY script/win-crate-boot.service  /etc/systemd/system/win-crate-boot.service
+RUN systemctl enable win-crate-boot
+
 # setup network bridge 
 #COPY 01-network-bridge.yaml /etc/netplan/01-network-bridge.yaml 
 #RUN sed -i "s/{{interface}}/eth0/g" /etc/netplan/01-network-bridge.yaml

@@ -1,0 +1,8 @@
+[Unit]
+Description=win-crate boot service 
+
+[Service]
+ExecStart=bash -c '/root/boot.sh'
+
+[Install]
+WantedBy=multi-user.target

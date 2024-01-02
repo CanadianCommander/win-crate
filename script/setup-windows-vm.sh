@@ -1,3 +1,4 @@
+pushd "$(dirname $0)" >> /dev/null 
 
 INSTALL_ISO=${INSTALL_ISO:-/var/vm/iso/win.iso}
 
@@ -9,8 +10,11 @@ CPU_CORES=${CPU_CORES:-4}
 
 BOOT=""
 if [ -f /var/vm/disk/${DISK_NAME}.qcow2 ]; then
+  echo "Existing install detected" 
+  BOOT="--boot=hd"
+else 
   BOOT="--boot=cdrom"
-fi
+fi 
 
 virt-install --name=windows \
   --disk path=/var/vm/disk/${DISK_NAME}.qcow2,size=${DISK_SIZE},format=qcow2,bus=virtio \
@@ -27,3 +31,4 @@ virt-install --name=windows \
   --filesystem /var/vm/data/,linux,accessmode=passthrough,driver.type=virtiofs \
   --network=bridge:virbr0
 
+popd >> /dev/null

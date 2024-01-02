@@ -1,3 +1,4 @@
+pushd "$(dirname $0)" >> /dev/null 
 
 if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
     echo "Usage: ./run.sh [mount points]"
@@ -6,8 +7,6 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
     echo "Example: ./run.sh /home/user/data /home/user/code/myproject"
     exit 0
 fi
-
-pushd "$(dirname $0)" >> /dev/null 
 
 DATA_MOUNTS=""
 for mount in "${@}"; do
