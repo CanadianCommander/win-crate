@@ -1,4 +1,4 @@
-# Windows in a Crate
+# Windows in a Crate (LSW)
 
 Windows VM in a nice little docker container. With windows in a container (VM) you can run windows applications on any OS that supports docker. This is a great way to run windows applications on a mac or linux machine. There is also a filesystem passthrough that allows you to share files with the windows container. This way you can develop on your host machine and run the application in the container. For example developing a windows application on a linux workstation.
 
@@ -27,3 +27,6 @@ you specify will be available in windows under the same drive. Usually the `Z:` 
 ### Now What? 
 You've got windows running but you can't see it. Don't worry. Just follow
 [Getting Setup](./doc/virt-manager.md)
+
+### Developing Remotely
+Follow [this guide](./doc/developing-remotly-from-your-linux-desktop.md) to connect your local `vscode` to the remote `vscode` server running in the windows container.

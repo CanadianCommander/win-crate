@@ -10,6 +10,10 @@ Navigate to the scripts CD drive as shown below.
 
 Run both the batch files in this directory as `ADMINISTRATOR`. The scripts will install spice guest tools and virtiofs drivers.
 
+### Optional Scripts 
+There are some optional scripts on the CD drive. You might want to run. 
+- `dotnet-dev-setup.ps1` - Install all the tools you will need for dotnet development. Including `vscode` for remote tunneling.
+
 ## Configure Devices 
 
 Next you must configure system devices to use the correct drivers. In "Device Manager" locate the 
